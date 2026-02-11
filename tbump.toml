@@ -1,0 +1,27 @@
+[version]
+current = "0.1.0"
+
+# Example of a semver regexp.
+# Make sure this matches current_version before running tbump
+regex = '''
+  (?P<major>\d+)
+  \.
+  (?P<minor>\d+)
+  \.
+  (?P<patch>\d+)
+  '''
+
+[git]
+message_template = "chore: bump version to {new_version}"
+tag_template = "v{new_version}"
+push = false
+
+# For each file to patch, add a [[file]] config section containing
+# the path of the file, relative to the tbump.toml location.
+[[file]]
+src = "package.json"
+search = '"version": "{current_version}"'
+
+[[file]]
+src = "tbump.toml"
+search = 'current = "{current_version}"'
