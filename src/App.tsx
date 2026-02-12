@@ -1,8 +1,11 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
+import { PageContainer } from '@/components/layout/PageContainer';
 import { Dashboard } from '@/pages/Dashboard';
 import { Demo } from '@/pages/Demo';
+import { Settings } from '@/pages/Settings';
 import { useEffect } from 'react';
 import { initializeTheme } from '@/lib/theme';
 
@@ -33,7 +36,7 @@ function App() {
             <Route path="campaigns" element={<PlaceholderPage title="Campaigns" />} />
             <Route path="funds" element={<PlaceholderPage title="Funds" />} />
             <Route path="payouts" element={<PlaceholderPage title="Payouts" />} />
-            <Route path="settings" element={<PlaceholderPage title="Settings" />} />
+            <Route path="settings" element={<Settings />} />
             <Route path="api-keys" element={<PlaceholderPage title="API Keys" />} />
             <Route path="demo" element={<Demo />} />
           </Route>
@@ -48,18 +51,16 @@ function App() {
 
 // Temporary placeholder for pages not yet implemented
 function PlaceholderPage({ title }: { title: string }) {
+  const { t } = useTranslation();
   return (
-    <div className="flex flex-col h-full">
-      <header className="h-16 bg-[var(--bg-base)] border-b border-[var(--border-default)] flex items-center px-6">
-        <h1 className="text-heading text-[var(--text-primary)]">{title}</h1>
-      </header>
-      <main className="flex-1 flex items-center justify-center">
+    <PageContainer title={title}>
+      <div className="flex-1 flex items-center justify-center min-h-[400px]">
         <div className="text-center">
-          <p className="text-lg text-[var(--text-secondary)]">{title} page</p>
-          <p className="text-sm text-[var(--text-muted)] mt-1">Coming soon</p>
+          <p className="text-lg text-[var(--text-secondary)]">{title}</p>
+          <p className="text-sm text-[var(--text-muted)] mt-1">{t('common.comingSoon')}</p>
         </div>
-      </main>
-    </div>
+      </div>
+    </PageContainer>
   );
 }
 

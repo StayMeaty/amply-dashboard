@@ -17,7 +17,7 @@ export function PageContainer({
 }: PageContainerProps) {
   return (
     <div className="flex flex-col h-full">
-      <Header title={title} action={action} />
+      <Header action={action} />
 
       <main
         className={cn(
@@ -26,6 +26,8 @@ export function PageContainer({
         )}
       >
         <div className="max-w-7xl mx-auto">
+          {/* Page Title */}
+          <h1 className="text-display text-[var(--text-primary)] mb-6">{title}</h1>
           {children}
         </div>
       </main>

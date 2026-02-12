@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   LayoutDashboard,
   Heart,
@@ -16,51 +17,57 @@ import { cn } from '@/lib/utils';
 import { useUIStore } from '@/stores/ui';
 
 interface NavItem {
-  label: string;
+  labelKey: string;
   href: string;
   icon: ReactNode;
 }
 
 const navItems: NavItem[] = [
-  { label: 'Dashboard', href: '/', icon: <LayoutDashboard size={18} /> },
-  { label: 'Donations', href: '/donations', icon: <Heart size={18} /> },
-  { label: 'Campaigns', href: '/campaigns', icon: <Megaphone size={18} /> },
-  { label: 'Funds', href: '/funds', icon: <Wallet size={18} /> },
-  { label: 'Payouts', href: '/payouts', icon: <CreditCard size={18} /> },
+  { labelKey: 'nav.dashboard', href: '/', icon: <LayoutDashboard size={18} /> },
+  { labelKey: 'nav.donations', href: '/donations', icon: <Heart size={18} /> },
+  { labelKey: 'nav.campaigns', href: '/campaigns', icon: <Megaphone size={18} /> },
+  { labelKey: 'nav.funds', href: '/funds', icon: <Wallet size={18} /> },
+  { labelKey: 'nav.payouts', href: '/payouts', icon: <CreditCard size={18} /> },
 ];
 
 const bottomNavItems: NavItem[] = [
-  { label: 'Demo', href: '/demo', icon: <Palette size={18} /> },
-  { label: 'Settings', href: '/settings', icon: <Settings size={18} /> },
-  { label: 'API Keys', href: '/api-keys', icon: <Key size={18} /> },
+  { labelKey: 'nav.demo', href: '/demo', icon: <Palette size={18} /> },
+  { labelKey: 'nav.settings', href: '/settings', icon: <Settings size={18} /> },
+  { labelKey: 'nav.apiKeys', href: '/api-keys', icon: <Key size={18} /> },
 ];
 
 export function Sidebar() {
+  const { t } = useTranslation();
   const { sidebarCollapsed, toggleSidebar } = useUIStore();
 
   return (
     <aside
       className={cn(
-        'fixed left-0 top-0 z-40 h-screen',
-        'bg-neutral-900 text-white',
+        'fixed left-3 top-3 z-40 rounded-xl',
         'flex flex-col',
+        'backdrop-blur-xl',
+        'border border-[var(--sidebar-border)]',
+        'shadow-lg',
         'transition-[width] duration-200 ease-out',
         sidebarCollapsed ? 'w-16' : 'w-60'
       )}
+      style={{
+        height: 'calc(100vh - 24px)',
+        background: 'var(--sidebar-bg)',
+        color: 'var(--sidebar-text)',
+      }}
     >
       {/* Logo */}
-      <div className="h-16 flex items-center px-4 border-b border-white/10">
-        <span
+      <div className="h-16 flex items-center justify-center px-3 border-b" style={{ borderColor: 'var(--sidebar-border)' }}>
+        <img
+          src={sidebarCollapsed ? '/dashboard/logo-icon.svg' : '/dashboard/logo.svg'}
+          alt="Amply"
           className={cn(
-            'font-black text-xl tracking-tight transition-opacity',
-            sidebarCollapsed && 'opacity-0 w-0 overflow-hidden'
+            'h-7 transition-all duration-200',
+            sidebarCollapsed ? 'w-7' : 'w-auto'
           )}
-        >
-          Amply
-        </span>
-        {sidebarCollapsed && (
-          <span className="font-black text-xl">A</span>
-        )}
+          style={{ filter: 'var(--logo-filter)' }}
+        />
       </div>
 
       {/* Main Navigation */}
@@ -75,20 +82,20 @@ export function Sidebar() {
                 'text-sm font-normal transition-colors duration-150',
                 isActive
                   ? 'bg-amply-teal text-white'
-                  : 'text-neutral-400 hover:text-white hover:bg-white/5',
+                  : 'text-[var(--sidebar-text-muted)] hover:text-[var(--sidebar-text)] hover:bg-[var(--sidebar-hover)]',
                 sidebarCollapsed && 'justify-center px-2'
               )
             }
-            title={sidebarCollapsed ? item.label : undefined}
+            title={sidebarCollapsed ? t(item.labelKey) : undefined}
           >
             <span className="flex-shrink-0 opacity-80">{item.icon}</span>
-            {!sidebarCollapsed && <span>{item.label}</span>}
+            {!sidebarCollapsed && <span>{t(item.labelKey)}</span>}
           </NavLink>
         ))}
       </nav>
 
       {/* Bottom Navigation */}
-      <div className="py-4 px-2 space-y-1 border-t border-white/10">
+      <div className="py-4 px-2 space-y-1 border-t" style={{ borderColor: 'var(--sidebar-border)' }}>
         {bottomNavItems.map((item) => (
           <NavLink
             key={item.href}
@@ -99,14 +106,14 @@ export function Sidebar() {
                 'text-sm font-normal transition-colors duration-150',
                 isActive
                   ? 'bg-amply-teal text-white'
-                  : 'text-neutral-400 hover:text-white hover:bg-white/5',
+                  : 'text-[var(--sidebar-text-muted)] hover:text-[var(--sidebar-text)] hover:bg-[var(--sidebar-hover)]',
                 sidebarCollapsed && 'justify-center px-2'
               )
             }
-            title={sidebarCollapsed ? item.label : undefined}
+            title={sidebarCollapsed ? t(item.labelKey) : undefined}
           >
             <span className="flex-shrink-0 opacity-80">{item.icon}</span>
-            {!sidebarCollapsed && <span>{item.label}</span>}
+            {!sidebarCollapsed && <span>{t(item.labelKey)}</span>}
           </NavLink>
         ))}
 
@@ -116,7 +123,7 @@ export function Sidebar() {
           className={cn(
             'flex items-center gap-3 px-3 py-2 rounded-md w-full',
             'text-sm font-normal transition-colors duration-150',
-            'text-neutral-400 hover:text-white hover:bg-white/5',
+            'text-[var(--sidebar-text-muted)] hover:text-[var(--sidebar-text)] hover:bg-[var(--sidebar-hover)]',
             sidebarCollapsed && 'justify-center px-2'
           )}
         >
@@ -125,7 +132,7 @@ export function Sidebar() {
           ) : (
             <>
               <ChevronLeft size={18} />
-              <span>Collapse</span>
+              <span>{t('nav.collapse')}</span>
             </>
           )}
         </button>

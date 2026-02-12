@@ -54,6 +54,18 @@ export function applyTheme(theme: Theme): void {
 export function initializeTheme(): Theme {
   const stored = getStoredTheme();
   applyTheme(stored);
+
+  // Initialize background mode from localStorage (zustand persist)
+  if (typeof document !== 'undefined') {
+    try {
+      const uiState = JSON.parse(localStorage.getItem('amply-ui') || '{}');
+      const bgMode = uiState?.state?.backgroundMode || 'wallpaper';
+      document.documentElement.setAttribute('data-bg-mode', bgMode);
+    } catch {
+      document.documentElement.setAttribute('data-bg-mode', 'wallpaper');
+    }
+  }
+
   return stored;
 }
 

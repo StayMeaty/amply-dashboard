@@ -45,7 +45,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
             // Ghost - Transparent
             ghost:
-              'text-amply-teal hover:bg-amply-light active:bg-amply-light/80',
+              'text-amply-teal hover:bg-amply-teal/10 active:bg-amply-teal/15',
 
             // Danger
             danger:

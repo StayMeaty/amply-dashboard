@@ -5,7 +5,8 @@
    =========================================== */
 @theme {
   /* Font Family */
-  --font-sans: "Lexend", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-brand: "Lexend", system-ui, sans-serif;
   --font-mono: "SF Mono", Monaco, "Courier New", monospace;
 
   /* Font Weights */
@@ -50,8 +51,21 @@
   /* Light mode defaults */
   --bg-base: #ffffff;
   --bg-subtle: #f5f5f5;
-  --bg-gradient-start: #e8f4f8;
-  --bg-gradient-end: #ffffff;
+  --bg-gradient-start: #dae4ed;
+  --bg-gradient-end: #f8fafb;
+  --bg-glow: radial-gradient(ellipse 80% 100% at 0% 0%, rgba(10, 22, 40, 0.08) 0%, transparent 50%);
+  --dot-pattern: rgba(0, 0, 0, 0.04);
+  --bg-overlay-start: rgba(218, 228, 237, 0.7);
+  --bg-overlay-end: rgba(248, 250, 251, 0.75);
+  --bg-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80');
+
+  /* Sidebar - Light mode (neutral glass) */
+  --sidebar-bg: rgba(255, 255, 255, 0.35);
+  --sidebar-text: #1a1a1a;
+  --sidebar-text-muted: #525252;
+  --sidebar-border: var(--border-default);
+  --sidebar-hover: rgba(0, 0, 0, 0.04);
+  --logo-filter: brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(500%) hue-rotate(160deg) brightness(95%);
 
   --surface-primary: rgba(255, 255, 255, 0.7);
   --surface-secondary: rgba(255, 255, 255, 0.5);
@@ -79,10 +93,23 @@
 
 [data-theme="dark"] {
   /* Dark mode overrides */
-  --bg-base: #0a0a0a;
-  --bg-subtle: #171717;
-  --bg-gradient-start: #0d1f26;
-  --bg-gradient-end: #0a0a0a;
+  --bg-base: #060d18;
+  --bg-subtle: #0a1525;
+  --bg-gradient-start: #060d18;
+  --bg-gradient-end: #0a1a2e;
+  --bg-glow: radial-gradient(ellipse 80% 100% at 0% 0%, rgba(5, 102, 141, 0.12) 0%, transparent 50%);
+  --dot-pattern: rgba(255, 255, 255, 0.03);
+  --bg-overlay-start: rgba(6, 13, 24, 0.75);
+  --bg-overlay-end: rgba(10, 26, 46, 0.8);
+  --bg-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80');
+
+  /* Sidebar - Dark mode (glass with navy tint) */
+  --sidebar-bg: rgba(10, 26, 46, 0.6);
+  --sidebar-text: #ffffff;
+  --sidebar-text-muted: #94a3b8;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-hover: rgba(255, 255, 255, 0.08);
+  --logo-filter: brightness(0) saturate(100%) invert(100%);
 
   --surface-primary: rgba(23, 23, 23, 0.7);
   --surface-secondary: rgba(23, 23, 23, 0.5);
@@ -123,9 +150,25 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: var(--text-primary);
-  background: linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  background:
+    radial-gradient(circle, var(--dot-pattern) 1px, transparent 1px),
+    var(--bg-glow),
+    linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  background-size: 20px 20px, 100% 100%, 100% 100%;
   background-attachment: fixed;
   min-height: 100vh;
+}
+
+/* Wallpaper background mode */
+[data-bg-mode="wallpaper"] body {
+  background:
+    radial-gradient(circle, var(--dot-pattern) 1px, transparent 1px),
+    var(--bg-glow),
+    linear-gradient(135deg, var(--bg-overlay-start) 0%, var(--bg-overlay-end) 100%),
+    var(--bg-image);
+  background-size: 20px 20px, 100% 100%, 100% 100%, cover;
+  background-position: 0 0, 0 0, 0 0, center;
+  background-attachment: fixed;
 }
 
 #root {
@@ -165,21 +208,21 @@ body {
    Typography Utility Classes
    =========================================== */
 .text-display {
-  font-weight: 100;
+  font-weight: 600;
   font-size: 2rem;
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 .text-heading {
-  font-weight: 200;
+  font-weight: 600;
   font-size: 1.5rem;
   line-height: 1.3;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .text-subheading {
-  font-weight: 300;
+  font-weight: 500;
   font-size: 1.125rem;
   line-height: 1.4;
 }

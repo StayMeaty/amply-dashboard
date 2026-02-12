@@ -1,0 +1,60 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "filter": "Filter",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "comingSoon": "Coming soon"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "donations": "Donations",
+    "campaigns": "Campaigns",
+    "funds": "Funds",
+    "payouts": "Payouts",
+    "settings": "Settings",
+    "apiKeys": "API Keys",
+    "demo": "Demo",
+    "collapse": "Collapse"
+  },
+  "header": {
+    "notifications": "Notifications",
+    "account": "Account",
+    "accountSettings": "Account Settings",
+    "signOut": "Sign Out"
+  },
+  "settings": {
+    "title": "Settings",
+    "appearance": "Appearance",
+    "appearanceDescription": "Customize how the dashboard looks and feels",
+    "language": "Language",
+    "languageDescription": "Choose your preferred language",
+    "theme": "Theme",
+    "themeDescription": "Select light, dark, or system theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System",
+    "background": "Background",
+    "backgroundDescription": "Choose between gradient or wallpaper background",
+    "backgroundGradient": "Gradient",
+    "backgroundWallpaper": "Wallpaper"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "totalReceived": "Total Received",
+    "thisMonth": "This Month",
+    "donors": "Donors",
+    "avgDonation": "Avg. Donation",
+    "recentDonations": "Recent Donations",
+    "viewAll": "View All",
+    "donationActivity": "Donation Activity"
+  },
+  "demo": {
+    "title": "Component Demo"
+  }
+}

@@ -8,11 +8,18 @@ import {
   watchSystemTheme,
 } from '@/lib/theme';
 
+export type BackgroundMode = 'gradient' | 'wallpaper';
+
 interface UIState {
   // Theme
   theme: Theme;
   resolvedTheme: 'light' | 'dark';
   setTheme: (theme: Theme) => void;
+
+  // Background mode
+  backgroundMode: BackgroundMode;
+  setBackgroundMode: (mode: BackgroundMode) => void;
+  toggleBackgroundMode: () => void;
 
   // Sidebar
   sidebarCollapsed: boolean;
@@ -38,6 +45,20 @@ export const useUIStore = create<UIState>()(
         });
       },
 
+      // Background mode
+      backgroundMode: 'wallpaper',
+      setBackgroundMode: (mode) => {
+        document.documentElement.setAttribute('data-bg-mode', mode);
+        set({ backgroundMode: mode });
+      },
+      toggleBackgroundMode: () => {
+        set((state) => {
+          const newMode = state.backgroundMode === 'gradient' ? 'wallpaper' : 'gradient';
+          document.documentElement.setAttribute('data-bg-mode', newMode);
+          return { backgroundMode: newMode };
+        });
+      },
+
       // Sidebar
       sidebarCollapsed: false,
       setSidebarCollapsed: (collapsed) => set({ sidebarCollapsed: collapsed }),
@@ -53,6 +74,7 @@ export const useUIStore = create<UIState>()(
       partialize: (state) => ({
         theme: state.theme,
         sidebarCollapsed: state.sidebarCollapsed,
+        backgroundMode: state.backgroundMode,
       }),
       onRehydrateStorage: () => (state) => {
         if (state) {
@@ -60,6 +82,8 @@ export const useUIStore = create<UIState>()(
           const theme = state.theme || getStoredTheme();
           applyTheme(theme);
           state.resolvedTheme = resolveTheme(theme);
+          // Apply background mode on rehydrate
+          document.documentElement.setAttribute('data-bg-mode', state.backgroundMode || 'wallpaper');
         }
       },
     }

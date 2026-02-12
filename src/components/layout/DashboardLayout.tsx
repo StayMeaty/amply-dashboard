@@ -13,7 +13,7 @@ export function DashboardLayout() {
       <div
         className={cn(
           'transition-[margin-left] duration-200 ease-out min-h-screen',
-          sidebarCollapsed ? 'ml-16' : 'ml-60'
+          sidebarCollapsed ? 'ml-[calc(64px+24px)]' : 'ml-[calc(240px+24px)]'
         )}
       >
         <Outlet />

@@ -1,0 +1,60 @@
+{
+  "common": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "loading": "Laden...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "comingSoon": "Demnächst verfügbar"
+  },
+  "nav": {
+    "dashboard": "Übersicht",
+    "donations": "Spenden",
+    "campaigns": "Kampagnen",
+    "funds": "Fonds",
+    "payouts": "Auszahlungen",
+    "settings": "Einstellungen",
+    "apiKeys": "API-Schlüssel",
+    "demo": "Demo",
+    "collapse": "Einklappen"
+  },
+  "header": {
+    "notifications": "Benachrichtigungen",
+    "account": "Konto",
+    "accountSettings": "Kontoeinstellungen",
+    "signOut": "Abmelden"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "appearance": "Erscheinungsbild",
+    "appearanceDescription": "Passen Sie das Aussehen des Dashboards an",
+    "language": "Sprache",
+    "languageDescription": "Wählen Sie Ihre bevorzugte Sprache",
+    "theme": "Design",
+    "themeDescription": "Wählen Sie zwischen hell, dunkel oder System",
+    "themeLight": "Hell",
+    "themeDark": "Dunkel",
+    "themeSystem": "System",
+    "background": "Hintergrund",
+    "backgroundDescription": "Wählen Sie zwischen Farbverlauf oder Hintergrundbild",
+    "backgroundGradient": "Farbverlauf",
+    "backgroundWallpaper": "Hintergrundbild"
+  },
+  "dashboard": {
+    "title": "Übersicht",
+    "totalReceived": "Gesamt erhalten",
+    "thisMonth": "Diesen Monat",
+    "donors": "Spender",
+    "avgDonation": "Durchschn. Spende",
+    "recentDonations": "Aktuelle Spenden",
+    "viewAll": "Alle anzeigen",
+    "donationActivity": "Spendenaktivität"
+  },
+  "demo": {
+    "title": "Komponenten-Demo"
+  }
+}
