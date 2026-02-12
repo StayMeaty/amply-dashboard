@@ -8,6 +8,7 @@ import {
   CreditCard,
   Settings,
   Key,
+  Palette,
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react';
@@ -29,6 +30,7 @@ const navItems: NavItem[] = [
 ];
 
 const bottomNavItems: NavItem[] = [
+  { label: 'Demo', href: '/demo', icon: <Palette size={18} /> },
   { label: 'Settings', href: '/settings', icon: <Settings size={18} /> },
   { label: 'API Keys', href: '/api-keys', icon: <Key size={18} /> },
 ];

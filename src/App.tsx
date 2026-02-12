@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
 import { Dashboard } from '@/pages/Dashboard';
+import { Demo } from '@/pages/Demo';
 import { useEffect } from 'react';
 import { initializeTheme } from '@/lib/theme';
 
@@ -34,6 +35,7 @@ function App() {
             <Route path="payouts" element={<PlaceholderPage title="Payouts" />} />
             <Route path="settings" element={<PlaceholderPage title="Settings" />} />
             <Route path="api-keys" element={<PlaceholderPage title="API Keys" />} />
+            <Route path="demo" element={<Demo />} />
           </Route>
 
           {/* Catch-all redirect */}
