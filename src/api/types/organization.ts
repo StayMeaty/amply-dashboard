@@ -200,3 +200,72 @@ export interface LedgerListResponse {
   page_size: number;
   has_more: boolean;
 }
+
+// ===== Campaign Types =====
+
+export type CampaignStatus = 'draft' | 'active' | 'paused' | 'completed' | 'cancelled';
+export type CampaignType = 'fundraiser' | 'project' | 'emergency' | 'recurring';
+
+export interface Campaign {
+  id: string;
+  organization_id: string;
+  fund_id: string | null;
+  slug: string;
+  title: string;
+  type: CampaignType;
+  status: CampaignStatus;
+  short_description: string | null;
+  story: string | null;
+  cover_image_url: string | null;
+  video_url: string | null;
+  goal_amount: number;
+  current_amount: number;
+  currency: string;
+  donation_count: number;
+  starts_at: string | null;
+  ends_at: string | null;
+  is_public: boolean;
+  is_featured: boolean;
+  sdgs: number[] | null;
+  created_at: string;
+  updated_at: string;
+  progress_percent: number;
+}
+
+export interface CampaignCreate {
+  title: string;
+  type?: CampaignType;
+  short_description?: string;
+  story?: string;
+  cover_image_url?: string;
+  video_url?: string;
+  goal_amount: number;
+  currency?: string;
+  starts_at?: string;
+  ends_at?: string;
+  is_public?: boolean;
+  fund_id?: string;
+  sdgs?: number[];
+}
+
+export interface CampaignUpdate {
+  title?: string;
+  short_description?: string;
+  story?: string;
+  cover_image_url?: string;
+  video_url?: string;
+  goal_amount?: number;
+  starts_at?: string;
+  ends_at?: string;
+  is_public?: boolean;
+  status?: CampaignStatus;
+  sdgs?: number[];
+}
+
+export interface CampaignListResponse {
+  items: Campaign[];
+  total: number;
+  page: number;
+  page_size: number;
+  has_more: boolean;
+}

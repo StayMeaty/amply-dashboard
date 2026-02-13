@@ -37,4 +37,12 @@ export const endpoints = {
     get: (orgId: string, fundId: string) => `${API_BASE}/organizations/${orgId}/funds/${fundId}`,
     create: (orgId: string) => `${API_BASE}/organizations/${orgId}/funds`,
   },
+  campaigns: {
+    mine: `${API_BASE}/campaigns/mine`,
+    get: (id: string) => `${API_BASE}/campaigns/mine/${id}`,
+  },
+  giving: {
+    history: `${API_BASE}/giving/history`,
+    summary: `${API_BASE}/giving/summary`,
+  },
 } as const;
