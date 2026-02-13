@@ -3,9 +3,17 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
 import { PageContainer } from '@/components/layout/PageContainer';
+import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
 import { Dashboard } from '@/pages/Dashboard';
 import { Demo } from '@/pages/Demo';
 import { Settings } from '@/pages/Settings';
+import { Login } from '@/pages/Login';
+import { Register } from '@/pages/Register';
+import { OrganizationOverview } from '@/pages/organization/Overview';
+import { OrganizationDonations } from '@/pages/organization/Donations';
+import { OrganizationLedger } from '@/pages/organization/Ledger';
+import { OrganizationFunds } from '@/pages/organization/Funds';
+import { OrganizationSettings } from '@/pages/organization/OrgSettings';
 import { useEffect } from 'react';
 import { initializeTheme } from '@/lib/theme';
 
@@ -29,15 +37,43 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter basename="/dashboard">
         <Routes>
-          {/* Dashboard routes */}
-          <Route element={<DashboardLayout />}>
+          {/* Auth routes (outside layout, no protection) */}
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+
+          {/* Protected dashboard routes */}
+          <Route
+            element={
+              <ProtectedRoute>
+                <DashboardLayout />
+              </ProtectedRoute>
+            }
+          >
+            {/* Home/Dashboard */}
             <Route index element={<Dashboard />} />
-            <Route path="donations" element={<PlaceholderPage title="Donations" />} />
+
+            {/* Organization routes (org admin only) */}
+            <Route path="organization">
+              <Route index element={<OrganizationOverview />} />
+              <Route path="donations" element={<OrganizationDonations />} />
+              <Route path="ledger" element={<OrganizationLedger />} />
+              <Route path="funds" element={<OrganizationFunds />} />
+              <Route path="payouts" element={<PlaceholderPage title="Payouts" />} />
+              <Route path="settings" element={<OrganizationSettings />} />
+            </Route>
+
+            {/* Outreach routes (all users) */}
             <Route path="campaigns" element={<PlaceholderPage title="Campaigns" />} />
-            <Route path="funds" element={<PlaceholderPage title="Funds" />} />
-            <Route path="payouts" element={<PlaceholderPage title="Payouts" />} />
+            <Route path="widgets" element={<PlaceholderPage title="Widgets" />} />
+            <Route path="integrations" element={<PlaceholderPage title="Integrations" />} />
+            <Route path="checkout" element={<PlaceholderPage title="Checkout" />} />
+
+            {/* Account routes (all users) */}
+            <Route path="giving" element={<PlaceholderPage title="My Giving" />} />
+            <Route path="profile" element={<PlaceholderPage title="Profile" />} />
             <Route path="settings" element={<Settings />} />
-            <Route path="api-keys" element={<PlaceholderPage title="API Keys" />} />
+
+            {/* Misc */}
             <Route path="demo" element={<Demo />} />
           </Route>
 

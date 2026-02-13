@@ -9,16 +9,125 @@
     "loading": "Loading...",
     "error": "Error",
     "success": "Success",
-    "comingSoon": "Coming soon"
+    "comingSoon": "Coming soon",
+    "back": "Back",
+    "continue": "Continue",
+    "submit": "Submit",
+    "viewAll": "View All",
+    "manage": "Manage"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Sign in to your account",
+      "submit": "Sign in",
+      "error": "Invalid email or password",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "forgotPassword": "Forgot your password?"
+    }
+  },
+  "register": {
+    "haveAccount": "Already have an account?",
+    "signIn": "Sign in",
+    "type": {
+      "title": "What brings you to Amply?",
+      "subtitle": "This helps us personalize your experience",
+      "individual": "Individual Donor",
+      "individualDesc": "I want to donate to causes I care about",
+      "business": "Business",
+      "businessDesc": "I represent a company that wants to give or collect donations",
+      "fundraiser": "Fundraiser",
+      "fundraiserDesc": "I want to raise money for a cause"
+    },
+    "credentials": {
+      "title": "Create your login",
+      "subtitle": "Your email will be used to sign in",
+      "passwordPlaceholder": "Min. 8 characters",
+      "confirmPassword": "Confirm password",
+      "confirmPlaceholder": "Confirm your password",
+      "passwordMismatch": "Passwords do not match"
+    },
+    "name": {
+      "title": "What's your name?",
+      "subtitle": "We'll use this to personalize your experience",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "displayName": "Display name (optional)",
+      "displayNamePlaceholder": "How you want to appear publicly",
+      "displayNameHint": "Leave blank to use your first name"
+    },
+    "company": {
+      "title": "Tell us about your company",
+      "subtitle": "This helps us tailor features for your business",
+      "name": "Company name",
+      "namePlaceholder": "Acme Inc.",
+      "role": "Your role",
+      "rolePlaceholder": "e.g. Marketing Manager"
+    },
+    "address": {
+      "title": "Your address",
+      "subtitle": "Required for tax receipts and verification",
+      "line1": "Street address",
+      "line1Placeholder": "123 Main Street",
+      "line2": "Apartment, suite, etc. (optional)",
+      "line2Placeholder": "Apt 4B",
+      "city": "City",
+      "cityPlaceholder": "New York",
+      "postalCode": "Postal code",
+      "region": "State/Province",
+      "regionPlaceholder": "e.g. California",
+      "country": "Country code"
+    },
+    "contact": {
+      "title": "Contact preferences",
+      "subtitle": "How can we reach you?",
+      "phone": "Phone number (optional)",
+      "phoneHint": "We'll only use this for account security",
+      "language": "Preferred language"
+    },
+    "preferences": {
+      "title": "Privacy preferences",
+      "subtitle": "Choose how your donations appear publicly",
+      "visibility": "Default donation visibility",
+      "publicFull": "Public",
+      "publicFullDesc": "Your name appears on public donation lists",
+      "publicAnonymous": "Anonymous",
+      "publicAnonymousDesc": "Your donation shows but your name is hidden",
+      "private": "Private",
+      "privateDesc": "Your donation is completely private",
+      "marketing": "I'd like to receive updates about impact stories and new features",
+      "createAccount": "Create account"
+    },
+    "welcome": {
+      "title": "Welcome to Amply!",
+      "subtitle": "Your account has been created successfully",
+      "verifyEmail": "Please verify your email",
+      "sentTo": "We've sent a verification link to {{email}}",
+      "continue": "Continue to sign in"
+    }
   },
   "nav": {
-    "dashboard": "Dashboard",
+    "sections": {
+      "organization": "Organization",
+      "outreach": "Outreach",
+      "account": "Account"
+    },
+    "overview": "Overview",
     "donations": "Donations",
-    "campaigns": "Campaigns",
+    "ledger": "Ledger",
     "funds": "Funds",
     "payouts": "Payouts",
+    "orgSettings": "Org Settings",
+    "campaigns": "Campaigns",
+    "widgets": "Widgets",
+    "integrations": "Integrations",
+    "checkout": "Checkout",
+    "myGiving": "My Giving",
+    "profile": "Profile",
     "settings": "Settings",
-    "apiKeys": "API Keys",
     "demo": "Demo",
     "collapse": "Collapse"
   },
@@ -56,5 +165,112 @@
   },
   "demo": {
     "title": "Component Demo"
+  },
+  "banners": {
+    "orgPending": "Your organization is pending approval. You cannot receive donations yet.",
+    "orgInfoRequested": "Additional information is required for your organization approval.",
+    "orgNotPublic": "Your organization is not publicly visible. Enable visibility in settings.",
+    "viewRequest": "View request",
+    "enableVisibility": "Enable visibility"
+  },
+  "org": {
+    "overview": {
+      "title": "Organization Overview",
+      "noData": "No organization data available",
+      "totalDonations": "Total Donations",
+      "thisMonth": "This Month",
+      "pending": "Pending",
+      "funds": "Funds",
+      "donations": "donations",
+      "awaitingProcessing": "Awaiting processing",
+      "activeFunds": "Active funds",
+      "recentDonations": "Recent Donations",
+      "noDonationsYet": "No donations yet",
+      "yourFunds": "Your Funds",
+      "noFundsYet": "No funds created yet"
+    },
+    "donations": {
+      "title": "Donations",
+      "donor": "Donor",
+      "amount": "Amount",
+      "fund": "Fund",
+      "status": "Status",
+      "date": "Date",
+      "fee": "Fee",
+      "anonymous": "Anonymous",
+      "empty": "No donations found",
+      "filters": {
+        "all": "All",
+        "completed": "Completed",
+        "pending": "Pending",
+        "refunded": "Refunded"
+      },
+      "statuses": {
+        "completed": "Completed",
+        "pending": "Pending",
+        "processing": "Processing",
+        "failed": "Failed",
+        "refunded": "Refunded"
+      }
+    },
+    "ledger": {
+      "title": "Ledger",
+      "type": "Type",
+      "amount": "Amount",
+      "fund": "Fund",
+      "description": "Description",
+      "date": "Date",
+      "empty": "No ledger entries",
+      "types": {
+        "genesis": "Genesis",
+        "donation_received": "Donation Received",
+        "refund_issued": "Refund Issued",
+        "adjustment": "Adjustment"
+      }
+    },
+    "funds": {
+      "title": "Funds",
+      "create": "Create Fund",
+      "createNew": "Create New Fund",
+      "createFirst": "Create Your First Fund",
+      "name": "Name",
+      "namePlaceholder": "e.g. General Fund",
+      "description": "Description",
+      "descriptionPlaceholder": "Optional description",
+      "balance": "Balance",
+      "goal": "Goal",
+      "ofGoal": "of goal",
+      "default": "Default",
+      "inactive": "Inactive",
+      "empty": "No funds created yet. Create your first fund to start receiving donations."
+    },
+    "settings": {
+      "title": "Organization Settings",
+      "noOrg": "No organization found",
+      "slug": "Slug",
+      "saved": "Changes saved",
+      "canReceive": "Can receive donations",
+      "cannotReceive": "Cannot receive donations",
+      "verification": {
+        "unverified": "Unverified",
+        "pending": "Pending",
+        "verified": "Verified",
+        "rejected": "Rejected"
+      },
+      "basicInfo": "Basic Information",
+      "basicInfoDesc": "Update your organization's public information",
+      "displayName": "Display Name",
+      "contactEmail": "Contact Email",
+      "website": "Website",
+      "description": "Description",
+      "missionStatement": "Mission Statement",
+      "address": "Address",
+      "addressDesc": "Your organization's physical address",
+      "addressLine1": "Address Line 1",
+      "addressLine2": "Address Line 2",
+      "city": "City",
+      "stateRegion": "State/Region",
+      "postalCode": "Postal Code"
+    }
   }
 }

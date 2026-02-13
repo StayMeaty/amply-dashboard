@@ -1,32 +1,18 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-
-export interface User {
-  id: string;
-  email: string;
-  name: string;
-  avatarUrl?: string;
-}
-
-export interface Organisation {
-  id: string;
-  name: string;
-  slug: string;
-  logoUrl?: string;
-}
+import type { User, Organization } from '@/api/types';
 
 interface AuthState {
   token: string | null;
   user: User | null;
-  organisation: Organisation | null;
-  organisations: Organisation[];
+  organization: Organization | null;
+  isLoading: boolean;
 
   // Actions
-  login: (token: string, user: User, organisation: Organisation) => void;
+  setAuth: (token: string, user: User) => void;
   logout: () => void;
-  setOrganisations: (organisations: Organisation[]) => void;
-  switchOrganisation: (organisation: Organisation) => void;
   updateUser: (updates: Partial<User>) => void;
+  setLoading: (loading: boolean) => void;
 }
 
 export const useAuthStore = create<AuthState>()(
@@ -34,40 +20,46 @@ export const useAuthStore = create<AuthState>()(
     (set) => ({
       token: null,
       user: null,
-      organisation: null,
-      organisations: [],
+      organization: null,
+      isLoading: true,
 
-      login: (token, user, organisation) =>
+      setAuth: (token, user) =>
         set({
           token,
           user,
-          organisation,
-          organisations: [organisation],
+          organization: user.organization,
+          isLoading: false,
         }),
 
       logout: () =>
         set({
           token: null,
           user: null,
-          organisation: null,
-          organisations: [],
+          organization: null,
+          isLoading: false,
         }),
-
-      setOrganisations: (organisations) => set({ organisations }),
-
-      switchOrganisation: (organisation) => set({ organisation }),
 
       updateUser: (updates) =>
         set((state) => ({
           user: state.user ? { ...state.user, ...updates } : null,
         })),
+
+      setLoading: (isLoading) => set({ isLoading }),
     }),
     {
       name: 'amply-auth',
       partialize: (state) => ({
         token: state.token,
-        // Don't persist sensitive user data
       }),
     }
   )
 );
+
+// Selectors
+export const useIsAuthenticated = () => useAuthStore((s) => !!s.token && !!s.user);
+export const useIsOrgAdmin = () => useAuthStore((s) => s.user?.account_type === 'organization_admin');
+export const useContributorType = () => useAuthStore((s) => s.user?.contributor_type);
+export const useOrganizationReviewStatus = () => useAuthStore((s) => s.organization?.review_status);
+
+// Re-export types for convenience
+export type { User, Organization };

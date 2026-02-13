@@ -9,16 +9,123 @@
     "loading": "Laden...",
     "error": "Fehler",
     "success": "Erfolg",
-    "comingSoon": "Demnächst verfügbar"
+    "comingSoon": "Demnächst verfügbar",
+    "back": "Zurück",
+    "continue": "Weiter",
+    "submit": "Absenden"
+  },
+  "auth": {
+    "email": "E-Mail",
+    "password": "Passwort",
+    "login": {
+      "title": "Willkommen zurück",
+      "subtitle": "Melden Sie sich bei Ihrem Konto an",
+      "submit": "Anmelden",
+      "error": "Ungültige E-Mail oder Passwort",
+      "noAccount": "Noch kein Konto?",
+      "signUp": "Registrieren",
+      "forgotPassword": "Passwort vergessen?"
+    }
+  },
+  "register": {
+    "haveAccount": "Bereits ein Konto?",
+    "signIn": "Anmelden",
+    "type": {
+      "title": "Was führt Sie zu Amply?",
+      "subtitle": "Dies hilft uns, Ihre Erfahrung zu personalisieren",
+      "individual": "Privatperson",
+      "individualDesc": "Ich möchte an Projekte spenden, die mir wichtig sind",
+      "business": "Unternehmen",
+      "businessDesc": "Ich vertrete ein Unternehmen, das spenden oder Spenden sammeln möchte",
+      "fundraiser": "Spendensammler",
+      "fundraiserDesc": "Ich möchte Geld für einen guten Zweck sammeln"
+    },
+    "credentials": {
+      "title": "Login erstellen",
+      "subtitle": "Ihre E-Mail wird zur Anmeldung verwendet",
+      "passwordPlaceholder": "Mind. 8 Zeichen",
+      "confirmPassword": "Passwort bestätigen",
+      "confirmPlaceholder": "Passwort bestätigen",
+      "passwordMismatch": "Passwörter stimmen nicht überein"
+    },
+    "name": {
+      "title": "Wie heißen Sie?",
+      "subtitle": "Wir verwenden dies zur Personalisierung",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "displayName": "Anzeigename (optional)",
+      "displayNamePlaceholder": "Wie Sie öffentlich erscheinen möchten",
+      "displayNameHint": "Leer lassen für Ihren Vornamen"
+    },
+    "company": {
+      "title": "Erzählen Sie uns von Ihrem Unternehmen",
+      "subtitle": "Dies hilft uns, die Funktionen anzupassen",
+      "name": "Firmenname",
+      "namePlaceholder": "Beispiel GmbH",
+      "role": "Ihre Rolle",
+      "rolePlaceholder": "z.B. Marketing Manager"
+    },
+    "address": {
+      "title": "Ihre Adresse",
+      "subtitle": "Erforderlich für Spendenquittungen",
+      "line1": "Straße und Hausnummer",
+      "line1Placeholder": "Hauptstraße 123",
+      "line2": "Zusatz (optional)",
+      "line2Placeholder": "Wohnung 4B",
+      "city": "Stadt",
+      "cityPlaceholder": "Berlin",
+      "postalCode": "Postleitzahl",
+      "region": "Bundesland",
+      "regionPlaceholder": "z.B. Bayern",
+      "country": "Ländercode"
+    },
+    "contact": {
+      "title": "Kontakteinstellungen",
+      "subtitle": "Wie können wir Sie erreichen?",
+      "phone": "Telefonnummer (optional)",
+      "phoneHint": "Nur für Kontosicherheit verwendet",
+      "language": "Bevorzugte Sprache"
+    },
+    "preferences": {
+      "title": "Datenschutzeinstellungen",
+      "subtitle": "Wählen Sie, wie Ihre Spenden öffentlich erscheinen",
+      "visibility": "Standard-Sichtbarkeit für Spenden",
+      "publicFull": "Öffentlich",
+      "publicFullDesc": "Ihr Name erscheint in öffentlichen Spendenlisten",
+      "publicAnonymous": "Anonym",
+      "publicAnonymousDesc": "Ihre Spende wird angezeigt, aber Ihr Name ist verborgen",
+      "private": "Privat",
+      "privateDesc": "Ihre Spende ist vollständig privat",
+      "marketing": "Ich möchte Updates über Wirkungsgeschichten und neue Funktionen erhalten",
+      "createAccount": "Konto erstellen"
+    },
+    "welcome": {
+      "title": "Willkommen bei Amply!",
+      "subtitle": "Ihr Konto wurde erfolgreich erstellt",
+      "verifyEmail": "Bitte bestätigen Sie Ihre E-Mail",
+      "sentTo": "Wir haben einen Bestätigungslink an {{email}} gesendet",
+      "continue": "Weiter zur Anmeldung"
+    }
   },
   "nav": {
-    "dashboard": "Übersicht",
+    "sections": {
+      "organization": "Organisation",
+      "outreach": "Reichweite",
+      "account": "Konto"
+    },
+    "overview": "Übersicht",
     "donations": "Spenden",
-    "campaigns": "Kampagnen",
+    "ledger": "Hauptbuch",
     "funds": "Fonds",
     "payouts": "Auszahlungen",
+    "orgSettings": "Org-Einstellungen",
+    "campaigns": "Kampagnen",
+    "widgets": "Widgets",
+    "integrations": "Integrationen",
+    "checkout": "Checkout",
+    "myGiving": "Meine Spenden",
+    "profile": "Profil",
     "settings": "Einstellungen",
-    "apiKeys": "API-Schlüssel",
     "demo": "Demo",
     "collapse": "Einklappen"
   },
@@ -56,5 +163,12 @@
   },
   "demo": {
     "title": "Komponenten-Demo"
+  },
+  "banners": {
+    "orgPending": "Ihre Organisation wartet auf Genehmigung. Sie können noch keine Spenden empfangen.",
+    "orgInfoRequested": "Für die Genehmigung Ihrer Organisation sind zusätzliche Informationen erforderlich.",
+    "orgNotPublic": "Ihre Organisation ist nicht öffentlich sichtbar. Aktivieren Sie die Sichtbarkeit in den Einstellungen.",
+    "viewRequest": "Anfrage ansehen",
+    "enableVisibility": "Sichtbarkeit aktivieren"
   }
 }
