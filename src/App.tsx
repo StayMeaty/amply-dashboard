@@ -15,6 +15,7 @@ import { OrganizationLedger } from '@/pages/organization/Ledger';
 import { OrganizationFunds } from '@/pages/organization/Funds';
 import { OrganizationSettings } from '@/pages/organization/OrgSettings';
 import { Campaigns } from '@/pages/Campaigns';
+import { MyGiving } from '@/pages/MyGiving';
 import { useEffect } from 'react';
 import { initializeTheme } from '@/lib/theme';
 
@@ -70,7 +71,7 @@ function App() {
             <Route path="checkout" element={<PlaceholderPage title="Checkout" />} />
 
             {/* Account routes (all users) */}
-            <Route path="giving" element={<PlaceholderPage title="My Giving" />} />
+            <Route path="giving" element={<MyGiving />} />
             <Route path="profile" element={<PlaceholderPage title="Profile" />} />
             <Route path="settings" element={<Settings />} />
 
