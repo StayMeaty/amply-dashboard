@@ -269,3 +269,40 @@ export interface CampaignListResponse {
   page_size: number;
   has_more: boolean;
 }
+
+// ===== Giving History Types =====
+
+export interface GivingHistoryItem {
+  id: string;
+  organization_id: string;
+  organization_name: string;
+  fund_id: string | null;
+  fund_name: string | null;
+  campaign_id: string | null;
+  campaign_title: string | null;
+  amount: number;
+  net_amount: number;
+  currency: string;
+  status: string;
+  message: string | null;
+  covers_fee: boolean;
+  receipt_number: string | null;
+  receipt_issued_at: string | null;
+  created_at: string;
+  completed_at: string | null;
+}
+
+export interface GivingHistoryResponse {
+  items: GivingHistoryItem[];
+  total: number;
+  page: number;
+  page_size: number;
+  has_more: boolean;
+}
+
+export interface GivingSummary {
+  total_donated: number;
+  total_donations: number;
+  total_organizations: number;
+  currency: string;
+}
