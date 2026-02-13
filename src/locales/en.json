@@ -272,5 +272,67 @@
       "stateRegion": "State/Region",
       "postalCode": "Postal Code"
     }
+  },
+  "campaigns": {
+    "title": "Campaigns",
+    "create": "Create Campaign",
+    "createFirst": "Create Your First Campaign",
+    "empty": "No campaigns yet. Create your first campaign to start fundraising.",
+    "goal": "Goal",
+    "raised": "raised",
+    "donations": "donations",
+    "filters": {
+      "all": "All"
+    },
+    "statuses": {
+      "draft": "Draft",
+      "active": "Active",
+      "paused": "Paused",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "types": {
+      "fundraiser": "Fundraiser",
+      "project": "Project",
+      "emergency": "Emergency",
+      "recurring": "Recurring"
+    },
+    "form": {
+      "title": "Campaign Title",
+      "titlePlaceholder": "e.g. Summer School Fund",
+      "type": "Campaign Type",
+      "description": "Short Description",
+      "descriptionPlaceholder": "Brief summary (max 500 characters)",
+      "story": "Story",
+      "storyPlaceholder": "Tell your campaign story...",
+      "goalAmount": "Goal Amount",
+      "currency": "Currency",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "coverImage": "Cover Image URL",
+      "videoUrl": "Video URL",
+      "isPublic": "Make campaign public",
+      "fund": "Link to Fund",
+      "selectFund": "Select a fund (optional)"
+    }
+  },
+  "giving": {
+    "title": "My Giving",
+    "totalDonated": "Total Donated",
+    "totalDonations": "Total Donations",
+    "organizationsSupported": "Organizations Supported",
+    "history": "Donation History",
+    "empty": "You haven't made any donations yet.",
+    "receipt": "Receipt",
+    "filters": {
+      "all": "All"
+    },
+    "statuses": {
+      "completed": "Completed",
+      "pending": "Pending",
+      "processing": "Processing",
+      "failed": "Failed",
+      "refunded": "Refunded"
+    }
   }
 }
