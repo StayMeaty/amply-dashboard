@@ -313,7 +313,12 @@
       "videoUrl": "Video URL",
       "isPublic": "Make campaign public",
       "fund": "Link to Fund",
-      "selectFund": "Select a fund (optional)"
+      "selectFund": "Select a fund (optional)",
+      "createTitle": "Create Campaign",
+      "editTitle": "Edit Campaign",
+      "details": "Campaign Details",
+      "loading": "Loading...",
+      "amountInCurrency": "Amount in {{currency}}"
     }
   },
   "giving": {

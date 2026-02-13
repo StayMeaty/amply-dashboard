@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { Plus, Megaphone, Calendar, Target } from 'lucide-react';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { GlassCard, CardHeader } from '@/components/glass/GlassCard';
@@ -19,6 +20,7 @@ const statusColors: Record<CampaignStatus, 'info' | 'success' | 'warning' | 'err
 
 export function Campaigns() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [statusFilter, setStatusFilter] = useState<string | undefined>(undefined);
   const { data, isLoading } = useCampaigns({ status: statusFilter });
 
@@ -28,7 +30,7 @@ export function Campaigns() {
     <PageContainer
       title={t('campaigns.title')}
       action={
-        <Button variant="primary" onClick={() => {/* TODO: Navigate to create */}}>
+        <Button variant="primary" onClick={() => navigate('/campaigns/new')}>
           <Plus size={16} className="mr-2" />
           {t('campaigns.create')}
         </Button>
@@ -64,7 +66,7 @@ export function Campaigns() {
         <GlassCard className="text-center py-12">
           <Megaphone size={48} className="mx-auto mb-4 text-[var(--text-muted)]" />
           <p className="text-[var(--text-muted)] mb-4">{t('campaigns.empty')}</p>
-          <Button variant="primary" onClick={() => {/* TODO: Navigate to create */}}>
+          <Button variant="primary" onClick={() => navigate('/campaigns/new')}>
             {t('campaigns.createFirst')}
           </Button>
         </GlassCard>
