@@ -14,6 +14,7 @@ import { OrganizationDonations } from '@/pages/organization/Donations';
 import { OrganizationLedger } from '@/pages/organization/Ledger';
 import { OrganizationFunds } from '@/pages/organization/Funds';
 import { OrganizationSettings } from '@/pages/organization/OrgSettings';
+import { Campaigns } from '@/pages/Campaigns';
 import { useEffect } from 'react';
 import { initializeTheme } from '@/lib/theme';
 
@@ -63,7 +64,7 @@ function App() {
             </Route>
 
             {/* Outreach routes (all users) */}
-            <Route path="campaigns" element={<PlaceholderPage title="Campaigns" />} />
+            <Route path="campaigns" element={<Campaigns />} />
             <Route path="widgets" element={<PlaceholderPage title="Widgets" />} />
             <Route path="integrations" element={<PlaceholderPage title="Integrations" />} />
             <Route path="checkout" element={<PlaceholderPage title="Checkout" />} />
