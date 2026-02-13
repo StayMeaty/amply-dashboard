@@ -17,6 +17,8 @@ import { OrganizationSettings } from '@/pages/organization/OrgSettings';
 import { Campaigns } from '@/pages/Campaigns';
 import { CampaignForm } from '@/pages/CampaignForm';
 import { MyGiving } from '@/pages/MyGiving';
+import { WidgetsList } from '@/pages/widgets/WidgetsList';
+import { WidgetForm } from '@/pages/widgets/WidgetForm';
 import { useEffect } from 'react';
 import { initializeTheme } from '@/lib/theme';
 
@@ -69,7 +71,9 @@ function App() {
             <Route path="campaigns" element={<Campaigns />} />
             <Route path="campaigns/new" element={<CampaignForm />} />
             <Route path="campaigns/:campaignId/edit" element={<CampaignForm />} />
-            <Route path="widgets" element={<PlaceholderPage title="Widgets" />} />
+            <Route path="widgets" element={<WidgetsList />} />
+            <Route path="widgets/new" element={<WidgetForm />} />
+            <Route path="widgets/:widgetId/edit" element={<WidgetForm />} />
             <Route path="integrations" element={<PlaceholderPage title="Integrations" />} />
             <Route path="checkout" element={<PlaceholderPage title="Checkout" />} />
 
