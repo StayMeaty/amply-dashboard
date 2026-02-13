@@ -45,4 +45,8 @@ export const endpoints = {
     history: `${API_BASE}/giving/history`,
     summary: `${API_BASE}/giving/summary`,
   },
+  widgets: {
+    mine: `${API_BASE}/widgets/mine`,
+    get: (id: string) => `${API_BASE}/widgets/mine/${id}`,
+  },
 } as const;

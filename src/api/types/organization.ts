@@ -306,3 +306,66 @@ export interface GivingSummary {
   total_organizations: number;
   currency: string;
 }
+
+// ===== Widget Types =====
+
+export type WidgetType = 'donation_button' | 'donation_form' | 'progress_bar' | 'leaderboard' | 'recent_donations';
+export type WidgetTheme = 'light' | 'dark' | 'auto';
+
+export interface Widget {
+  id: string;
+  organization_id: string;
+  fund_id: string | null;
+  campaign_id: string | null;
+  name: string;
+  type: WidgetType;
+  theme: WidgetTheme;
+  primary_color: string | null;
+  button_text: string | null;
+  show_goal: boolean;
+  show_donors: boolean;
+  show_recent: boolean;
+  preset_amounts: number[] | null;
+  custom_css: string | null;
+  is_active: boolean;
+  embed_count: number;
+  created_at: string;
+  updated_at: string;
+  embed_code: string;
+}
+
+export interface WidgetCreate {
+  name: string;
+  type?: WidgetType;
+  fund_id?: string;
+  campaign_id?: string;
+  theme?: WidgetTheme;
+  primary_color?: string;
+  button_text?: string;
+  show_goal?: boolean;
+  show_donors?: boolean;
+  show_recent?: boolean;
+  preset_amounts?: number[];
+  custom_css?: string;
+}
+
+export interface WidgetUpdate {
+  name?: string;
+  theme?: WidgetTheme;
+  primary_color?: string;
+  button_text?: string;
+  show_goal?: boolean;
+  show_donors?: boolean;
+  show_recent?: boolean;
+  preset_amounts?: number[];
+  custom_css?: string;
+  is_active?: boolean;
+}
+
+export interface WidgetListResponse {
+  items: Widget[];
+  total: number;
+  page: number;
+  page_size: number;
+  has_more: boolean;
+}
