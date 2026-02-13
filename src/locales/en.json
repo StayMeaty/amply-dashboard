@@ -14,7 +14,11 @@
     "continue": "Continue",
     "submit": "Submit",
     "viewAll": "View All",
-    "manage": "Manage"
+    "manage": "Manage",
+    "loadMore": "Load More",
+    "copied": "Copied!",
+    "previous": "Previous",
+    "next": "Next"
   },
   "auth": {
     "email": "Email",
@@ -338,6 +342,54 @@
       "processing": "Processing",
       "failed": "Failed",
       "refunded": "Refunded"
+    }
+  },
+  "widgets": {
+    "title": "Widgets",
+    "create": "Create Widget",
+    "createNew": "Create New Widget",
+    "createFirst": "Create Your First Widget",
+    "empty": "No widgets yet. Create embeddable donation widgets for your website.",
+    "active": "Active",
+    "inactive": "Inactive",
+    "embeds": "embeds",
+    "copyCode": "Copy Code",
+    "confirmDelete": "Are you sure you want to delete this widget?",
+    "types": {
+      "donation_button": "Donation Button",
+      "donation_form": "Donation Form",
+      "progress_bar": "Progress Bar",
+      "leaderboard": "Donor Leaderboard",
+      "recent_donations": "Recent Donations"
+    },
+    "themes": {
+      "auto": "Auto (System)",
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "form": {
+      "basicInfo": "Basic Information",
+      "name": "Widget Name",
+      "namePlaceholder": "e.g. Homepage Donate Button",
+      "nameRequired": "Widget name is required",
+      "type": "Widget Type",
+      "theme": "Theme",
+      "buttonText": "Button Text",
+      "targeting": "Targeting",
+      "fund": "Specific Fund",
+      "allFunds": "All Funds",
+      "campaign": "Specific Campaign",
+      "noCampaign": "No Campaign",
+      "showGoal": "Show fundraising goal",
+      "showDonors": "Show donor count",
+      "showRecent": "Show recent donations",
+      "customization": "Customization",
+      "primaryColor": "Primary Color",
+      "presetAmounts": "Preset Amounts",
+      "presetAmountsHelp": "Comma-separated values (e.g. 10, 25, 50, 100)",
+      "customCss": "Custom CSS",
+      "create": "Create Widget",
+      "error": "Failed to create widget"
     }
   }
 }
