@@ -111,6 +111,17 @@ export function CampaignForm() {
 
   const isLoading = isCreating || isUpdating;
 
+  const handleCancel = async () => {
+    if (!campaignId) return;
+    if (!confirm(t('campaigns.form.confirmCancel'))) return;
+    try {
+      await update({ id: campaignId, data: { status: 'cancelled' } });
+      navigate('/campaigns');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to cancel campaign');
+    }
+  };
+
   if (isEdit && campaignLoading) {
     return (
       <PageContainer title={t('campaigns.form.loading')}>
@@ -317,6 +328,17 @@ export function CampaignForm() {
             >
               {isLoading ? t('common.loading') : isEdit ? t('common.save') : t('campaigns.create')}
             </Button>
+            {isEdit && existingCampaign?.status !== 'cancelled' && (
+              <Button
+                type="button"
+                variant="ghost"
+                onClick={handleCancel}
+                disabled={isUpdating}
+                className="ml-auto text-red-500 hover:text-red-400 hover:bg-red-500/10"
+              >
+                {t('campaigns.form.cancelCampaign')}
+              </Button>
+            )}
           </div>
         </GlassCard>
       </form>

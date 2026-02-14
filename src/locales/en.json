@@ -322,7 +322,9 @@
       "editTitle": "Edit Campaign",
       "details": "Campaign Details",
       "loading": "Loading...",
-      "amountInCurrency": "Amount in {{currency}}"
+      "amountInCurrency": "Amount in {{currency}}",
+      "cancelCampaign": "Cancel Campaign",
+      "confirmCancel": "Are you sure you want to cancel this campaign? This cannot be undone."
     }
   },
   "giving": {
