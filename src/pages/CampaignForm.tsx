@@ -62,6 +62,16 @@ export function CampaignForm() {
       return;
     }
 
+    // Validate date range
+    if (form.starts_at && form.ends_at) {
+      const start = new Date(form.starts_at);
+      const end = new Date(form.ends_at);
+      if (start >= end) {
+        setError('Start date must be before end date');
+        return;
+      }
+    }
+
     try {
       if (isEdit && campaignId) {
         const updateData: CampaignUpdate = {
