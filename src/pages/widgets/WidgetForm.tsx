@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft } from 'lucide-react';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { GlassCard, CardHeader } from '@/components/glass/GlassCard';
 import { Button } from '@/components/ui/Button';
 import { Input, Label, Textarea } from '@/components/ui/Input';
-import { useWidgetMutations } from '@/api/hooks/useWidgets';
+import { useWidget, useWidgetMutations } from '@/api/hooks/useWidgets';
 import { useOrganizationFunds } from '@/api/hooks/useOrganization';
 import { useCampaigns } from '@/api/hooks/useCampaigns';
-import type { WidgetCreate, WidgetType, WidgetTheme } from '@/api/types';
+import type { WidgetCreate, WidgetUpdate, WidgetType, WidgetTheme } from '@/api/types';
 
 const widgetTypes: WidgetType[] = [
   'donation_button',
@@ -24,7 +24,11 @@ const themes: WidgetTheme[] = ['auto', 'light', 'dark'];
 export function WidgetForm() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { create, isCreating } = useWidgetMutations();
+  const { widgetId } = useParams<{ widgetId: string }>();
+  const isEdit = !!widgetId;
+
+  const { data: existingWidget, isLoading: widgetLoading } = useWidget(widgetId || '');
+  const { create, isCreating, update, isUpdating } = useWidgetMutations();
   const { funds } = useOrganizationFunds();
   const { data: campaignData } = useCampaigns();
 
@@ -38,6 +42,29 @@ export function WidgetForm() {
   });
   const [error, setError] = useState<string | null>(null);
   const [presetAmountsInput, setPresetAmountsInput] = useState('');
+
+  // Load existing widget data for edit mode
+  useEffect(() => {
+    if (existingWidget) {
+      setForm({
+        name: existingWidget.name,
+        type: existingWidget.type as WidgetType,
+        theme: existingWidget.theme as WidgetTheme,
+        fund_id: existingWidget.fund_id || undefined,
+        campaign_id: existingWidget.campaign_id || undefined,
+        primary_color: existingWidget.primary_color || undefined,
+        button_text: existingWidget.button_text || undefined,
+        show_goal: existingWidget.show_goal,
+        show_donors: existingWidget.show_donors,
+        show_recent: existingWidget.show_recent,
+        custom_css: existingWidget.custom_css || undefined,
+      });
+      // Convert cents back to display values
+      if (existingWidget.preset_amounts?.length) {
+        setPresetAmountsInput(existingWidget.preset_amounts.map((v) => v / 100).join(', '));
+      }
+    }
+  }, [existingWidget]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,19 +82,46 @@ export function WidgetForm() {
         .map((v) => parseInt(v.trim()) * 100)
         .filter((v) => !isNaN(v) && v > 0);
 
-      await create({
-        ...form,
-        preset_amounts: presetAmounts.length > 0 ? presetAmounts : undefined,
-      });
+      if (isEdit && widgetId) {
+        const updateData: WidgetUpdate = {
+          name: form.name,
+          theme: form.theme,
+          fund_id: form.fund_id || null,
+          campaign_id: form.campaign_id || null,
+          primary_color: form.primary_color || null,
+          button_text: form.button_text || null,
+          show_goal: form.show_goal,
+          show_donors: form.show_donors,
+          show_recent: form.show_recent,
+          preset_amounts: presetAmounts.length > 0 ? presetAmounts : null,
+          custom_css: form.custom_css || null,
+        };
+        await update({ id: widgetId, data: updateData });
+      } else {
+        await create({
+          ...form,
+          preset_amounts: presetAmounts.length > 0 ? presetAmounts : undefined,
+        });
+      }
       navigate('/widgets');
     } catch (err) {
       setError(err instanceof Error ? err.message : t('widgets.form.error'));
     }
   };
 
+  if (isEdit && widgetLoading) {
+    return (
+      <PageContainer title={t('widgets.editWidget')}>
+        <div className="flex items-center justify-center py-12">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amply-teal" />
+        </div>
+      </PageContainer>
+    );
+  }
+
   return (
     <PageContainer
-      title={t('widgets.createNew')}
+      title={isEdit ? t('widgets.editWidget') : t('widgets.createNew')}
       action={
         <Button variant="secondary" onClick={() => navigate('/widgets')}>
           <ArrowLeft size={16} className="mr-2" />
@@ -266,8 +320,8 @@ export function WidgetForm() {
           <Button type="button" variant="secondary" onClick={() => navigate('/widgets')}>
             {t('common.cancel')}
           </Button>
-          <Button type="submit" variant="primary" disabled={isCreating || !form.name}>
-            {isCreating ? t('common.loading') : t('widgets.form.create')}
+          <Button type="submit" variant="primary" disabled={isCreating || isUpdating || !form.name}>
+            {(isCreating || isUpdating) ? t('common.loading') : isEdit ? t('common.save') : t('widgets.form.create')}
           </Button>
         </div>
       </form>

@@ -351,6 +351,7 @@
     "create": "Create Widget",
     "createNew": "Create New Widget",
     "createFirst": "Create Your First Widget",
+    "editWidget": "Edit Widget",
     "empty": "No widgets yet. Create embeddable donation widgets for your website.",
     "active": "Active",
     "inactive": "Inactive",
