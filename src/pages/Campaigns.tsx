@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Plus, Megaphone, Calendar, Target } from 'lucide-react';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { GlassCard, CardHeader } from '@/components/glass/GlassCard';
@@ -90,7 +90,8 @@ function CampaignCard({ campaign }: { campaign: Campaign }) {
   };
 
   return (
-    <GlassCard>
+    <Link to={`/campaigns/${campaign.id}/edit`} className="block group">
+    <GlassCard className="transition-all group-hover:ring-1 group-hover:ring-amply-teal/30">
       {/* Cover Image */}
       {campaign.cover_image_url && (
         <div className="h-32 -mx-4 -mt-4 mb-4 rounded-t-xl overflow-hidden">
@@ -164,5 +165,6 @@ function CampaignCard({ campaign }: { campaign: Campaign }) {
         )}
       </div>
     </GlassCard>
+    </Link>
   );
 }
