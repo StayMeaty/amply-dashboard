@@ -86,15 +86,15 @@ export function WidgetForm() {
         const updateData: WidgetUpdate = {
           name: form.name,
           theme: form.theme,
-          fund_id: form.fund_id || null,
-          campaign_id: form.campaign_id || null,
-          primary_color: form.primary_color || null,
-          button_text: form.button_text || null,
+          fund_id: form.fund_id || undefined,
+          campaign_id: form.campaign_id || undefined,
+          primary_color: form.primary_color || undefined,
+          button_text: form.button_text || undefined,
           show_goal: form.show_goal,
           show_donors: form.show_donors,
           show_recent: form.show_recent,
-          preset_amounts: presetAmounts.length > 0 ? presetAmounts : null,
-          custom_css: form.custom_css || null,
+          preset_amounts: presetAmounts.length > 0 ? presetAmounts : undefined,
+          custom_css: form.custom_css || undefined,
         };
         await update({ id: widgetId, data: updateData });
       } else {

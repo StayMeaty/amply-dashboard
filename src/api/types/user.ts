@@ -1,6 +1,5 @@
 import type { AccountType, ContributorType } from './auth';
-
-export type OrganizationReviewStatus = 'pending' | 'approved' | 'rejected' | 'info_requested';
+import type { OrganizationReviewStatus } from './organization';
 
 export interface Organization {
   id: string;

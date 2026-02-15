@@ -351,6 +351,8 @@ export interface WidgetCreate {
 
 export interface WidgetUpdate {
   name?: string;
+  fund_id?: string;
+  campaign_id?: string;
   theme?: WidgetTheme;
   primary_color?: string;
   button_text?: string;

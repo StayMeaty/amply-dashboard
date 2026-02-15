@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { GlassCard } from '@/components/glass/GlassCard';
-import { DataTable, Column } from '@/components/data/DataTable';
+import { DataTable, type Column } from '@/components/data/DataTable';
 import { Badge } from '@/components/data/Badge';
 import { useOrganizationDonations } from '@/api/hooks/useOrganization';
 import { formatCurrency, formatDate } from '@/lib/utils';

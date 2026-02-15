@@ -20,7 +20,7 @@ interface HeaderProps {
 
 export function Header({ action }: HeaderProps) {
   const { t } = useTranslation();
-  const { user, organisation } = useAuthStore();
+  const { user, organization } = useAuthStore();
 
   return (
     <Tooltip.Provider delayDuration={300}>
@@ -62,7 +62,7 @@ export function Header({ action }: HeaderProps) {
                         'bg-amply-teal text-white text-xs font-semibold'
                       )}
                     >
-                      {user ? getInitials(user.name) : 'U'}
+                      {user ? getInitials(user.display_name || `${user.first_name} ${user.last_name}`) : 'U'}
                     </div>
                     <ChevronDown size={14} className="text-[var(--text-muted)]" />
                   </button>
@@ -87,10 +87,10 @@ export function Header({ action }: HeaderProps) {
                 {/* User Info */}
                 <div className="px-3 py-2 border-b border-[var(--border-default)]">
                   <p className="text-sm font-medium text-[var(--text-primary)]">
-                    {user?.name || 'User'}
+                    {user?.display_name || (user ? `${user.first_name} ${user.last_name}` : 'User')}
                   </p>
                   <p className="text-xs text-[var(--text-muted)]">
-                    {organisation?.name || 'Organisation'}
+                    {organization?.name || 'Organisation'}
                   </p>
                 </div>
 

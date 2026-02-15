@@ -165,7 +165,7 @@ function DonationRow({ donation }: { donation: GivingHistoryItem }) {
           <span className="font-medium text-[var(--text-primary)] truncate">
             {donation.organization_name}
           </span>
-          <Badge variant={statusColors[donation.status] ?? 'default'} size="sm">
+          <Badge variant={statusColors[donation.status] ?? 'default'}>
             {t(`giving.statuses.${donation.status}`)}
           </Badge>
         </div>

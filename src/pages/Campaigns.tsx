@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate, Link } from 'react-router-dom';
 import { Plus, Megaphone, Calendar, Target } from 'lucide-react';
 import { PageContainer } from '@/components/layout/PageContainer';
-import { GlassCard, CardHeader } from '@/components/glass/GlassCard';
+import { GlassCard } from '@/components/glass/GlassCard';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/data/Badge';
 import { useCampaigns } from '@/api/hooks/useCampaigns';

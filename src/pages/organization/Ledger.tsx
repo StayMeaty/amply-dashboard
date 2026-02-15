@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { ArrowUpRight, ArrowDownLeft, RefreshCw, Sparkles } from 'lucide-react';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { GlassCard } from '@/components/glass/GlassCard';
-import { DataTable, Column } from '@/components/data/DataTable';
+import { DataTable, type Column } from '@/components/data/DataTable';
 import { useOrganizationLedger } from '@/api/hooks/useOrganization';
 import { formatCurrency, formatDate } from '@/lib/utils';
 import type { LedgerEntry } from '@/api/types';
