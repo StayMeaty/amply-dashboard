@@ -107,7 +107,7 @@ export function Sidebar() {
         style={{ borderColor: 'var(--sidebar-border)' }}
       >
         <img
-          src={sidebarCollapsed ? '/dashboard/logo-icon.svg' : '/dashboard/logo.svg'}
+          src={sidebarCollapsed ? '/logo-icon.svg' : '/logo.svg'}
           alt="Amply"
           className={cn('h-7 transition-all duration-200', sidebarCollapsed ? 'w-7' : 'w-auto')}
           style={{ filter: 'var(--logo-filter)' }}

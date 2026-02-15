@@ -229,7 +229,7 @@ export function Register() {
         {!isComplete && (
           <div className="text-center mb-6">
             <img
-              src="/dashboard/logo.svg"
+              src="/logo.svg"
               alt="Amply"
               className="h-7 mx-auto"
               style={{ filter: 'var(--logo-filter)' }}

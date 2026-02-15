@@ -40,7 +40,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter basename="/dashboard">
+      <BrowserRouter>
         <Routes>
           {/* Auth routes (outside layout, no protection) */}
           <Route path="login" element={<Login />} />

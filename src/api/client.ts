@@ -20,7 +20,7 @@ class ApiClient {
       if (response.status === 401) {
         // Token expired, logout
         useAuthStore.getState().logout();
-        window.location.href = '/dashboard/login';
+        window.location.href = '/login';
         throw new Error('Session expired');
       }
 

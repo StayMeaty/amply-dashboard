@@ -32,7 +32,7 @@ export function Login() {
       <GlassCard className="w-full max-w-md" padding="lg">
         <div className="text-center mb-8">
           <img
-            src="/dashboard/logo.svg"
+            src="/logo.svg"
             alt="Amply"
             className="h-8 mx-auto mb-6"
             style={{ filter: 'var(--logo-filter)' }}
