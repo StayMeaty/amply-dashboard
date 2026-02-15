@@ -36,6 +36,7 @@ export function CampaignForm() {
   // Load existing campaign data for edit mode
   useEffect(() => {
     if (existingCampaign) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- Sync form state from server data on initial load
       setForm({
         title: existingCampaign.title,
         type: existingCampaign.type as CampaignType,

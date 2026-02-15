@@ -46,6 +46,7 @@ export function WidgetForm() {
   // Load existing widget data for edit mode
   useEffect(() => {
     if (existingWidget) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- Sync form state from server data on initial load
       setForm({
         name: existingWidget.name,
         type: existingWidget.type as WidgetType,

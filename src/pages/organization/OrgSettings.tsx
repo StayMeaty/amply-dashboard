@@ -19,6 +19,7 @@ export function OrganizationSettings() {
 
   useEffect(() => {
     if (organization) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- Sync form state from server data on initial load
       setForm({
         display_name: organization.display_name || '',
         description: organization.description || '',
